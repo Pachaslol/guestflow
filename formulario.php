@@ -6,16 +6,16 @@
 
         $nome = $_POST['nome'];
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
         $telefone = $_POST['telefone'];
         $sexo = $_POST['genero'];
-        $nascimento = $_POST['data_nascimento'];
+        $data_nasc = $_POST['data_nascimento'];
 
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(Nome,Email,Telefone,Sexo,Nascimento) 
-        VALUES ('$nome','$email','$telefone','$sexo','$nascimento')");
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc) 
+        VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc')");
 
         header('Location: login.php');
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,28 +27,29 @@
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+            background-image: linear-gradient(to right, #1D3557, #457B9D);
         }
         .box{
-            color: white;
+            color: #FFFFFF;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(29, 53, 87, 0.9);
             padding: 15px;
             border-radius: 15px;
             width: 20%;
         }
         fieldset{
-            border: 3px solid dodgerblue;
+            border: 3px solid #A8DADC;
         }
         legend{
-            border: 1px solid dodgerblue;
+            border: 1px solid #A8DADC;
             padding: 10px;
             text-align: center;
-            background-color: dodgerblue;
+            background-color: #A8DADC;
             border-radius: 8px;
+            color: #1D3557;
         }
         .inputBox{
             position: relative;
@@ -56,9 +57,9 @@
         .inputUser{
             background: none;
             border: none;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid #F1FAEE;
             outline: none;
-            color: white;
+            color: #F1FAEE;
             font-size: 15px;
             width: 100%;
             letter-spacing: 2px;
@@ -69,12 +70,13 @@
             left: 0px;
             pointer-events: none;
             transition: .5s;
+            color: #F1FAEE;
         }
         .inputUser:focus ~ .labelInput,
         .inputUser:valid ~ .labelInput{
             top: -20px;
             font-size: 12px;
-            color: dodgerblue;
+            color: #A8DADC;
         }
         #data_nascimento{
             border: none;
@@ -84,21 +86,22 @@
             font-size: 15px;
         }
         #submit{
-            background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
+            background-image: linear-gradient(to right, #1D3557, #457B9D);
             width: 100%;
             border: none;
             padding: 15px;
-            color: white;
+            color: #FFFFFF;
             font-size: 15px;
             cursor: pointer;
             border-radius: 10px;
         }
         #submit:hover{
-            background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
+            background-image: linear-gradient(to right, #457B9D, #1D3557);
         }
     </style>
 </head>
 <body>
+    <a href="home.php" style="color: #A8DADC;">Voltar</a>
     <div class="box">
         <form action="formulario.php" method="POST">
             <fieldset>
