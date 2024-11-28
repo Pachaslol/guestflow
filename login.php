@@ -2,76 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Tela de login</title>
     <style>
-        body {
+        body{
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #1D3557; /* Azul-marinho */
-            color: #F1FAEE; /* Cinza-claro */
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(to right, #1D3557, #457B9D);
         }
-
-        div {
-            background-color: #457B9D; /* Azul-claro */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 40px 60px;
+        div{
+            background-color: rgba(29, 53, 87, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
             border-radius: 15px;
-            text-align: center;
+            color: #F1FAEE;
         }
-
-        h1 {
-            margin-bottom: 20px;
-            color: #F1FAEE; /* Cinza-claro */
-        }
-
-        input {
+        input{
             padding: 15px;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 2px solid #A8DADC; /* Verde-menta */
-            border-radius: 10px;
-            font-size: 15px;
-            background-color: #FFFFFF; /* Branco */
-            color: #1D3557; /* Azul-marinho */
-            box-sizing: border-box;
-        }
-
-        input:focus {
-            border-color: #F1FAEE; /* Cinza-claro */
+            border: none;
             outline: none;
+            font-size: 15px;
         }
-
-        button {
-            background-color: #A8DADC; /* Verde-menta */
+        .inputSubmit{
+            background-color: #A8DADC;
             border: none;
             padding: 15px;
             width: 100%;
             border-radius: 10px;
-            color: #1D3557; /* Azul-marinho */
+            color: #1D3557;
             font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
         }
-
-        button:hover {
-            background-color: #F1FAEE; /* Cinza-claro */
-            color: #457B9D; /* Azul-claro */
+        .inputSubmit:hover{
+            background-color: #457B9D;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <a href="home.php" style="color: #F1FAEE;">Voltar</a>
     <div>
         <h1>Login</h1>
-        <input type="text" placeholder="Nome">
-        <br>
-        <input type="password" placeholder="Senha">
-        <br>
-        <button>Enviar</button>
+        <form action="testLogin.php" method="POST">
+            <input type="text" name="email" placeholder="Email">
+            <br><br>
+            <input type="password" name="senha" placeholder="Senha">
+            <br><br>
+            <input class="inputSubmit" type="submit" name="submit" value="Enviar">
+        </form>
     </div>
 </body>
 </html>
