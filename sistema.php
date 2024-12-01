@@ -34,7 +34,7 @@
     }
     else
     {
-        $sql = "SELECT * FROM usuarios2 ORDER BY id DESC";
+        $sql = "SELECT * FROM usuarios2 ORDER BY id ASC";
     }
     $result = $conexao->query($sql);
 ?>
@@ -47,34 +47,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>GuestFlow</title>
     <style>
-        body{
+        body {
             font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
-            color: white;
+            background: linear-gradient(to right, #457B9D, #1D3557);
+            color: #FFFFFF;
             text-align: center;
         }
-        .box{
-        color: #FFFFFF;
-        margin:auto;
-        background-color: rgba(29, 53, 87, 0.9);
-        padding: 20px;
-        border-radius: 15px;
-        width: 25%;
+        .box {
+            color: #FFFFFF;
+            margin: auto;
+            background-color: rgba(29, 53, 87, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            width: 25%;
         }
-        fieldset{
+        fieldset {
             border: 3px solid #A8DADC;
         }
-        legend{
+        legend {
             border: 1px solid #A8DADC;
             padding: 10px;
             text-align: center;
             background-color: #A8DADC;
             color: #1D3557;
         }
-        .inputBox{
+        .inputBox {
             position: relative;
         }
-        .inputUser{
+        .inputUser {
             background: none;
             border: none;
             border-bottom: 1px solid #F1FAEE;
@@ -84,7 +84,7 @@
             width: 100%;
             letter-spacing: 2px;
         }
-        .labelInput{
+        .labelInput {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -93,19 +93,19 @@
             color: #F1FAEE;
         }
         .inputUser:focus ~ .labelInput,
-        .inputUser:valid ~ .labelInput{
+        .inputUser:valid ~ .labelInput {
             top: -20px;
             font-size: 12px;
             color: #A8DADC;
         }
-        #data_nascimento{
+        #data_nascimento {
             border: none;
             padding: 8px;
             border-radius: 10px;
             outline: none;
             font-size: 15px;
         }
-        #submit{
+        #submit {
             background-image: linear-gradient(to right, #1D3557, #457B9D);
             width: 100%;
             border: none;
@@ -114,20 +114,46 @@
             font-size: 15px;
             cursor: pointer;
         }
-        #submit:hover{
+        #submit:hover {
             background-image: linear-gradient(to right, #457B9D, #1D3557);
         }
-        .table-bg{
+        .table-bg {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px 15px 0 0;
         }
-
-        .box-search{
+        .box-search {
             display: flex;
             justify-content: center;
             gap: .1%;
         }
+        .navbar {
+        background-color: #1D3557 !important;
+        border-bottom: 3px solid #A8DADC;
+        }
+        .navbar-brand {
+            color: #A8DADC !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .navbar-brand:hover {
+            color: #F1FAEE !important;
+        }
+        .navbar-toggler {
+            border-color: #A8DADC;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23A8DADC' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .btn-danger {
+            background-color: #457B9D;
+            border: none;
+            color: #FFFFFF;
+        }
+        .btn-danger:hover {
+            background-color: #1D3557;
+        }
     </style>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -164,16 +190,17 @@
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputBox">
                     <input type="tel" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
+                <br>
                 <p>Sexo:</p>
                 <input type="radio" id="feminino" name="genero" value="feminino" required>
                 <label for="feminino">Feminino</label>
@@ -186,12 +213,12 @@
                 <br><br>
                 <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                 <input type="date" name="data_nascimento" id="data_nascimento" required>
-                <br><br><br>
+                <br><br>
                 <div class="inputBox">
                     <input type="text" name="cidade" id="cidade" class="inputUser" required>
                     <label for="cidade" class="labelInput">Cidade</label>
                 </div>
-                <br><br>
+                <br>
                 <div class="inputBox">
                     <input type="text" name="estado" id="estado" class="inputUser" required>
                     <label for="estado" class="labelInput">Estado</label>
@@ -213,6 +240,7 @@
                     <th scope="col">Data de Nascimento</th>
                     <th scope="col">Cidade</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">...</th>
                 </tr>
             </thead>
             <tbody>

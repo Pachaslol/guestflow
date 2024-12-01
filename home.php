@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SITE</title>
+    <title>Login</title>
     <style>
-        body{
+      body {
             font-family: Arial, Helvetica, sans-serif;
             background: linear-gradient(to right, #1D3557, #457B9D);
             text-align: center;
             color: #F1FAEE;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            height: 100vh;
         }
-        .box{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
+
+        img {
+            margin-top: 120px; 
+            margin-bottom: 10px;
+        }
+
+        .box {
             background-color: rgba(29, 53, 87, 0.9);
             padding: 30px;
             border-radius: 10px;
+            margin-top: 10px; 
         }
         a{
             text-decoration: none;
@@ -36,6 +46,7 @@
     </style>
 </head>
 <body>
+    <img src=" img\guestflow.png" alt="Guestflow" width="222" height="170">
     <div class="box">
         <a href="login.php">Login</a>
         <a href="formulario.php">Cadastre-se</a>
